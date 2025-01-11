@@ -154,14 +154,14 @@ public class DeferredRegister<T>
     private SetMultimap<TagKey<T>, Supplier<T>> optionalTags;
     private boolean seenRegisterEvent = false;
 
-    private DeferredRegister(ResourceKey<? extends Registry<T>> registryKey, String modid, boolean optionalRegistry)
+    protected DeferredRegister(ResourceKey<? extends Registry<T>> registryKey, String modid, boolean optionalRegistry)
     {
         this.registryKey = registryKey;
         this.modid = modid;
         this.optionalRegistry = optionalRegistry;
     }
 
-    private DeferredRegister(IForgeRegistry<T> reg, String modid)
+    protected DeferredRegister(IForgeRegistry<T> reg, String modid)
     {
         this(reg.getRegistryKey(), modid, false);
     }
@@ -378,7 +378,7 @@ public class DeferredRegister<T>
         Multimaps.asMap(this.optionalTags).forEach(tagManager::addOptionalTagDefaults);
     }
 
-    private void addEntries(RegisterEvent event)
+    protected void addEntries(RegisterEvent event)
     {
         if (event.getRegistryKey().equals(this.registryKey))
         {
