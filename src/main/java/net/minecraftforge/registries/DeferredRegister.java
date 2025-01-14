@@ -142,8 +142,8 @@ public class DeferredRegister<T>
         return new DeferredRegister<>(ResourceKey.createRegistryKey(registryName), modid, true);
     }
 
-    private final ResourceKey<? extends Registry<T>> registryKey;
-    private final String modid;
+    protected final ResourceKey<? extends Registry<T>> registryKey;
+    protected final String modid;
     private final boolean optionalRegistry;
     private final Map<RegistryObject<T>, Supplier<? extends T>> entries = new LinkedHashMap<>();
     private final Set<RegistryObject<T>> entriesView = Collections.unmodifiableSet(entries.keySet());
@@ -161,7 +161,7 @@ public class DeferredRegister<T>
         this.optionalRegistry = optionalRegistry;
     }
 
-    protected DeferredRegister(IForgeRegistry<T> reg, String modid)
+    private DeferredRegister(IForgeRegistry<T> reg, String modid)
     {
         this(reg.getRegistryKey(), modid, false);
     }

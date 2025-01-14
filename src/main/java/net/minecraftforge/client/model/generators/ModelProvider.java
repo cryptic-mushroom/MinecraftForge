@@ -39,7 +39,7 @@ public abstract class ModelProvider<T extends ModelBuilder<T>> implements DataPr
     protected final DataGenerator generator;
     protected final String modid;
     protected final String folder;
-    protected final Function<ResourceLocation, T> factory;
+    protected Function<ResourceLocation, T> factory;
     @VisibleForTesting
     public final Map<ResourceLocation, T> generatedModels = new HashMap<>();
     @VisibleForTesting

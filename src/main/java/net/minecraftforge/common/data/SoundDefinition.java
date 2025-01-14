@@ -40,7 +40,7 @@ public final class SoundDefinition
      */
     public static final class Sound
     {
-        private static final SoundType DEFAULT_TYPE = SoundType.SOUND;
+        public static final SoundType DEFAULT_TYPE = SoundType.SOUND;
         private static final float DEFAULT_VOLUME = 1.0F;
         private static final float DEFAULT_PITCH = 1.0F;
         private static final int DEFAULT_WEIGHT = 1;
